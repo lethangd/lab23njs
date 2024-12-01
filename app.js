@@ -63,11 +63,12 @@ app.use(shopRoutes);
 app.use(authRoutes);
 
 app.use(errorController.get404);
+const PORT = process.env.PORT || 3000;
 
 mongoose
   .connect(MONGODB_URI)
   .then((result) => {
-    app.listen(3000);
+    app.listen(PORT);
   })
   .catch((err) => {
     console.log(err);
